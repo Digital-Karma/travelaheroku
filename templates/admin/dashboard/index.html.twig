@@ -1,0 +1,300 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau de Bord!
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<div class="card bg-primary text-white mb-3 text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<i class="fas fa-users fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<h4 class="card-title">{{stats.users}}
+									Utilisateur</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-white bg-dark mb-3 text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<i class="fas fa-globe fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<h4 class="card-title">{{stats.focusPays}}
+									Focus Pays</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card text-white bg-warning mb-3 text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<i class="fas fa-city fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<h4 class="card-title">{{stats.focusVille}}
+									Focus Villes</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-black bg-secondary mb-3 text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<i class="fas fa-search-location fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<h4 class="card-title">{{stats.focusLieu}}
+									Focus Lieus</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-white bg-success mb-3 text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<i class="fas fa-comments fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<h4 class="card-title">{{stats.comment}}
+									Avis postés</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<div class="alert alert-success">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-up"></i>
+						Les Focus Pays populaires</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus Pays</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for pays in bestFocusPays %}
+								<tr>
+									<td>{{pays.title}}</td>
+									<td>
+										<img src="{{pays.picture}}" class="avatar avatar-micro" alt="image de profil de {{pays.firstName}} {{pays.lastName}}">
+										{{pays.firstName}}
+										{{pays.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{pays.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col">
+				<div class="alert alert-danger">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-down"></i>
+						Les Focus Pays les moins bien</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus Pays</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for pays in badFocusPays %}
+								<tr>
+									<td>{{pays.title}}</td>
+									<td>
+										<img src="{{pays.picture}}" class="avatar avatar-micro" alt="image de profil de {{pays.firstName}} {{pays.lastName}}">
+										{{pays.firstName}}
+										{{pays.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{pays.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		{# Rapport sur les Focus Ville #}
+		<hr>
+		<div class="row">
+			<div class="col">
+				<div class="alert alert-success">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-up"></i>
+						Les Focus ville populaires</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus ville</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for ville in bestFocusVille %}
+								<tr>
+									<td>{{ville.title}}</td>
+									<td>
+										<img src="{{ville.picture}}" class="avatar avatar-micro" alt="image de profil de {{ville.firstName}} {{ville.lastName}}">
+										{{ville.firstName}}
+										{{ville.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{ville.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col">
+				<div class="alert alert-danger">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-down"></i>
+						Les Focus ville les moins bien</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus ville</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for ville in badFocusVille %}
+								<tr>
+									<td>{{ville.title}}</td>
+									<td>
+										<img src="{{ville.picture}}" class="avatar avatar-micro" alt="image de profil de {{ville.firstName}} {{ville.lastName}}">
+										{{ville.firstName}}
+										{{ville.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{ville.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		{# Rapport sur les Focus Lieu #}
+		<hr>
+		<div class="row">
+			<div class="col">
+				<div class="alert alert-success">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-up"></i>
+						Les Focus lieu populaires</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus lieu</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for lieu in bestFocusLieu %}
+								<tr>
+									<td>{{lieu.title}}</td>
+									<td>
+										<img src="{{lieu.picture}}" class="avatar avatar-micro" alt="image de profil de {{lieu.firstName}} {{lieu.lastName}}">
+										{{lieu.firstName}}
+										{{lieu.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{lieu.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col">
+				<div class="alert alert-danger">
+					<h2 class="alert-heading my-3">
+						<i class="fas fa-arrow-down"></i>
+						Les Focus lieu les moins bien</h2>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Focus lieu</th>
+								<th>Voyageur du Focus</th>
+								<th>Moyenne</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for lieu in badFocusLieu %}
+								<tr>
+									<td>{{lieu.title}}</td>
+									<td>
+										<img src="{{lieu.picture}}" class="avatar avatar-micro" alt="image de profil de {{lieu.firstName}} {{lieu.lastName}}">
+										{{lieu.firstName}}
+										{{lieu.lastName}}
+									</td>
+									<td class="text-center">
+										<span class="badge badge-dark rounded">
+											{{lieu.note | number_format(1, ",", " ")}}
+										</span>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Modification du Focus Pays numéro
+	{{comment.id}}
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1>Modification de l'annonce
+			{{comment.id}}</h1>
+
+		{{ form_start(form)}}
+		<div class="row">
+			<div class="col">
+				<div class="card bg-light">
+					<div class="card-header">
+						<h4 class="card-title">Corriger le commentaire de
+							{{comment.author.fullName}}</h4>
+
+						<div>
+							<img src="{{comment.author.picture}}" alt="Avatar de {{comment.author.fullName}}" class="avatar ml-4">
+							{{comment.author.fullName}}
+						</div>
+					</div>
+					<div class="card-body">
+						{{ form_widget(form)}}
+						<button type="submit" class="btn btn-primary">
+							<i class="fas fa-check"></i>
+							Valider modifications
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		{{ form_end(form)}}
+
+	</div>
+
+{% endblock %}

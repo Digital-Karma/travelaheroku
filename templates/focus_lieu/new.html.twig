@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Création d'un Focus Lieu
+{% endblock %}
+
+{% form_theme form 'focus_lieu/_collection.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Créer un nouveau focus Lieu</h1>
+
+    {{ form_start(form) }}
+
+    {{form_widget(form)}}
+    
+    <button type="submit" class="btn btn-primary">Créer le Focus</button>
+
+    {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block _focus_lieu_markerLieu_widget %}
+    <p>Ajouter les données du marker</p>
+
+    {{ form_widget(form) }}
+
+{% endblock %}

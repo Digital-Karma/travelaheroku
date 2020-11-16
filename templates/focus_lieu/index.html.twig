@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Super Focus
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="my-3">Voici nos plus beaux FocusLieu.</h1>
+		<div class="row">
+			{% for focs in focus %}
+				{% include "focus_lieu/_focus_lieu.html.twig" %}
+
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

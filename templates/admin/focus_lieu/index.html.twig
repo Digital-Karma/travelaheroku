@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des Focus Lieu
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1 class="my-5">Gestion des Focus Lieu</h1>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titre du Focus</th>
+					<th>Auteur du Focus</th>
+					<th class="text-center">Dans quel Ville est ce lieu?</th>
+					<th class="text-center">Note sur 5</th>
+					<th class="text-center">Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for focus in pagination.data %}
+					<tr>
+						<td>{{focus.id}}</td>
+						<td>{{focus.title}}</td>
+						<td>
+							<img src="{{focus.author.picture}}" alt="Avatar de {{focus.author.fullName}}" class="avatar avatar-micro mr-2">
+							{{focus.author.fullName}}
+						</td>
+						<td class="text-center">
+							<span>{{focus.focusVille.title}}</span>
+						</td>
+						<td class="text-center">
+							<span class="badge badge-primary rounded">{{focus.avgRatings | number_format(1, ',', ' ')}}</span>
+						</td>
+						<td>
+							<a href="{{ path('admin_focuslieu_edit', {'id': focus.id})}}" class="btn btn-primary">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a href="{{ path('admin_focuslieu_delete', {'id': focus.id})}}" class="btn btn-danger">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{{ pagination.display() }}
+	</div>
+{% endblock %}

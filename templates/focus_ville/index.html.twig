@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Super Focus Ville
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="my-3">Voici nos plus beaux Focus Ville.</h1>
+		<div class="row">
+			{% for focs in focus %}
+				{% include "focus_ville/_focus_ville.html.twig" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Bienvenue sur Travelabroad
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="jumbotron mt-3">
+			<h1 class="display-3">Bienvenue sur Travelaboard</h1>
+			<p class="lead">Nous mettons en relations des voyageurs afin qu'ils partagent leurs expériences.</p>
+			<hr class="my-4">
+			<p>Vous êtes voyageur ? Et vous souhaitez avoir des suggestions pour votre prochaine aventure?
+			</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="#" role="button">Voir nos lieux recommandés</a>
+			</p>
+		</div>
+
+		<h2 class="h1 mt-3 mb-4">Nos Focus Pays Stars</h2>
+
+		<div class="row">
+			{% for dataPays in fpays %}
+				{% include "focus_pays/_focus_pays.html.twig" with {'focs': dataPays.pays} %}
+			{% endfor %}
+		</div>
+
+		<h2 class="h1 mt-3 mb-4">Nos Focus Villes Stars</h2>
+
+		<div class="row">
+			{% for dataVille in fville %}
+				{% include "focus_ville/_focus_ville.html.twig" with {'focs': dataVille.ville} %}
+			{% endfor %}
+		</div>
+
+		<h2 class="h1 mt-3 mb-4">Nos Focus Lieus Stars</h2>
+
+		<div class="row">
+			{% for dataLieu in flieu %}
+				{% include "focus_lieu/_focus_lieu.html.twig" with {'focs': dataLieu.lieu} %}
+			{% endfor %}
+		</div>
+
+		{# <h2 class="h1 mt-3 mb-4">Nos Voyageurs Stars !</h2>
+								
+										<div class="row">
+											<div class="col">
+												<div class="card border-secondary mb-3">
+													<div class="card-body">
+														<h4 class="card-title">Jessy Muller</h4>
+								
+														<hr>
+								
+														<div class="card-text">
+															<img src="http://placehold.it/64x64" alt="Avatar" class="float-left mr-3">
+															<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, eos.</p>
+															<a href="#" class="btn btn-success float-right">En savoir plus</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col">
+												<div class="card border-secondary mb-3">
+													<div class="card-body">
+														<h4 class="card-title">Jessy Muller</h4>
+								
+														<hr>
+								
+														<div class="card-text">
+															<img src="http://placehold.it/64x64" alt="Avatar" class="float-left mr-3">
+															<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, eos.</p>
+															<a href="#" class="btn btn-success float-right">En savoir plus</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div> #}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{# {{ encore_entry_script_tags('app') }} #}
+{% endblock %}

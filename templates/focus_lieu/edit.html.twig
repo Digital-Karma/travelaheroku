@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Edition Focus Lieu
+{% endblock %}
+
+{% form_theme form "focus_lieu/_collection.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h1>Modifier le focus lieu: {{focus_lieu.title}}</h1>
+
+        {{ form_start(form) }}
+
+        {{form_widget(form)}}
+    
+        <button type="submit" class="btn btn-primary">Créer le Focus</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

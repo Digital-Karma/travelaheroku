@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Vous n'avez pas accès à cette ressource
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Alors ? Ce focus ne vous plait pas ?!
+		</h1>
+		<p class="alert alert-danger">Vous ne pouvez pas modifier un focus que vous n'avez pas créé !
+		</p>
+		<p class="alert alert-warning">Si vous souhaitez apporter des modifications faites le nous savoir, autrement vous pouvez retourner vous balader sur notre site !
+		</p>
+		<a href="{{path('home')}}" class="btn btn-info">Retour à l'accueil</a>
+		<a href="{{path('focus_pays')}}" class="btn btn-primary">Focus Pays</a>
+	</div>
+{% endblock %}

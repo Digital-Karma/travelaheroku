@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Edition Focus Pays
+{% endblock %}
+
+{% form_theme form "focus_pays/_collection.html.twig" %}
+
+{% block body %}
+        <div class="container">
+        <h1>Modifier le focus pays: {{focus_pays.title}}</h1>
+
+        {{ form_start(form) }}
+
+        {{form_widget(form)}}
+    
+        <button type="submit" class="btn btn-primary">Créer le Focus</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

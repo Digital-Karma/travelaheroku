@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 d54e515841e7ebd5411697b17c3d700bcb509344 Digital-Karma <react.digital.web@gmail.com> 1599299773 +0200	commit (initial): envoi sur heroku
+d54e515841e7ebd5411697b17c3d700bcb509344 722ae40a359ecf448fa40b9f05ca34661ace7de2 Digital-Karma <react.digital.web@gmail.com> 1599300219 +0200	commit: ajout de .htaccess
+722ae40a359ecf448fa40b9f05ca34661ace7de2 d70cfa381ddacd197999e7c278b9bce0e020a4dd Digital-Karma <react.digital.web@gmail.com> 1599300635 +0200	commit: Mise a jour des packages
+d70cfa381ddacd197999e7c278b9bce0e020a4dd 293ec85e9eb1568104a0877f2fe210f8be8cee03 Digital-Karma <react.digital.web@gmail.com> 1599300948 +0200	commit: Création du Procfile
+293ec85e9eb1568104a0877f2fe210f8be8cee03 2b86c7cfed46d74811b6560606643679ad2eabdf Digital-Karma <react.digital.web@gmail.com> 1600853587 +0200	commit: gestion des utilisateur et liaison avec les focus
+2b86c7cfed46d74811b6560606643679ad2eabdf dc99e73285af1a977bd0ff605ef1abd539c22a06 Digital-Karma <react.digital.web@gmail.com> 1600948913 +0200	commit: Mise en place des authorisation et ajout de fonctionnalité Delete
+dc99e73285af1a977bd0ff605ef1abd539c22a06 637c894914dddfea13ae816aed23f64967afcbd0 Digital-Karma <react.digital.web@gmail.com> 1604684718 +0100	commit: Mise en place de l'administration
+637c894914dddfea13ae816aed23f64967afcbd0 5f5752ce8f8968fd8e18a78c2e337ec965c25c2c Digital-Karma <react.digital.web@gmail.com> 1605006734 +0100	commit: Pagination créé mise en place de cette logique dans l'administration
+5f5752ce8f8968fd8e18a78c2e337ec965c25c2c 1a0eb41a194d046aab1a3e7bd8b26ea9cfdc2674 Digital-Karma <react.digital.web@gmail.com> 1605522059 +0100	commit: Mise en place de webpack, css et js
+1a0eb41a194d046aab1a3e7bd8b26ea9cfdc2674 1a0eb41a194d046aab1a3e7bd8b26ea9cfdc2674 Digital-Karma <react.digital.web@gmail.com> 1605522247 +0100	Branch: renamed refs/heads/master to refs/heads/main

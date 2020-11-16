@@ -1,0 +1,33 @@
+
+{% block _focus_ville_markerVille_widget %}
+    <p>Ajouter les données du marker</p>
+
+    {{ form_widget(form) }}
+
+{% endblock %}
+
+{% block _focus_ville_markerVille_entry_widget %}
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                {{ form_widget(form.title) }}
+            </div>
+            <div class="col">
+                {{ form_widget(form.longitude) }}
+
+            </div>
+            <div class="col">
+                {{ form_widget(form.latitude) }}
+
+            </div>
+            <div class="col">
+                {{ form_widget(form.adresse) }}
+
+            </div>
+            <div class="col">
+                {{ form_widget(form.slug) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

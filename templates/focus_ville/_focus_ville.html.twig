@@ -1,0 +1,29 @@
+{% set url = path('focus_show_ville', {'slug': focs.slug }) %}
+<div class="col-md-4">
+	<div class="card bg-light mb-3">
+		<div class="card-header text-center">
+			<p class="h3">Focus Ville</p>
+			{% if focs.comments|length > 0 %}
+				{% include "partials/rating.html.twig" with {'rating': focs.AvgRatings} %}
+			{% else %}
+				<small>Pas encore noté</small>
+			{% endif %}
+		</div>
+		<a href="{{ url }}">
+			<img src="{{focs.imageCover}}" alt="Image de l'appartement" style="height:200px; width: 100%; display: block">
+		</a>
+		<div class="card-body">
+			<h4 class="card-title">
+				<a href="{{ url }}">{{ focs.title }}</a>
+			</h4>
+			<p class="card-text">
+				{{ focs.introduction }}
+			</p>
+			<a class="btn btn-secondary" href="{{ url }}">En savoir plus.</a>
+
+			{% if app.user and app.user == focs.author %}
+				<a href="{{ path('ville_edit', {'slug': focs.slug})}}" class="btn btn-primary">Modifier Focus</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

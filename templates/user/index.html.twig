@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de
+	{{user.fullName}}
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-3 mt-4 text-center">
+				<img src="{{user.picture}}" class="avatar mb-3" alt="Avatar de {{user.fullName}}">
+				<br>
+				<span class="badge badge-primary">{{user.focusPays | length}}
+					focus pays créés</span>
+				<span class="badge badge-primary">{{user.focusVilles | length}}
+					focus ville créés</span>
+				<span class="badge badge-primary">{{user.focusLieus | length}}
+					focus lieu créés</span>
+			</div>
+			<div class="col-9">
+				<h1>
+					{{user.fullname}}
+				</h1>
+				{% if user is same as(app.user) %}
+					<div class="mt-3">
+						<a href="{{path('account_profile')}}" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
+						<a href="{{path('account_password')}}" class="btn btn-primary mb-2">Modifier mon mot de passe</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
+		{{user.description | raw}}
+
+		<hr>
+
+		<h2>Les focus de
+			{{user.fullName}}
+		</h2>
+
+		{% if user.focusPays | length > 0 %}
+			<div class="row">
+				{% for focs in user.focusPays %}
+                    {% include "focus_pays/_focus_pays.html.twig" %}
+                {% endfor %}
+			</div>
+		{% else %}
+			<div class="alert alert-warning">
+				<p>
+					<strong>{{user.fullName}}</strong>
+					n'a pas encore créé de focus Pays !
+				</p>
+			</div>
+		{% endif %}
+
+		{% if user.focusVilles | length > 0 %}
+			<div class="row">
+				{% for focs in user.focusVilles %}
+                    {% include "focus_ville/_focus_ville.html.twig" %}
+                {% endfor %}
+			</div>
+		{% else %}
+			<div class="alert alert-warning">
+				<p>
+					<strong>{{user.fullName}}</strong>
+					n'a pas encore créé de focus Ville !
+				</p>
+			</div>
+		{% endif %}
+
+		{% if user.focusLieus | length > 0 %}
+			<div class="row">
+				{% for focs in user.focusLieus %}
+                    {% include "focus_lieu/_focus_lieu.html.twig" %}
+                {% endfor %}
+			</div>
+		{% else %}
+			<div class="alert alert-warning">
+				<p>
+					<strong>{{user.fullName}}</strong>
+					n'a pas encore créé de focus Lieu !
+				</p>
+			</div>
+		{% endif %}
+	</div>
+
+{% endblock %}
